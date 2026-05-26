@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "houseName": "Sk pg",
+    "price": "4400",
+    "location": "Noida",
+    "photoURl": "https://assets.cntraveller.in/photos/6886f33321edcddedd073bdd/3:2/w_3000,h_2000,c_limit/Airbnb-Rooms-Bangkok-Bedroom-2023-Summer-Release.jpg",
+    "rating": "4.8"
+  },
+  {
+    "id": "2",
+    "houseName": "Agarwal house",
+    "price": "10000",
+    "location": "Kotdwara",
+    "photoURl": "https://assets.cntraveller.in/photos/6886f33321edcddedd073bdd/3:2/w_3000,h_2000,c_limit/Airbnb-Rooms-Bangkok-Bedroom-2023-Summer-Release.jpg",
+    "rating": "8"
+  },
+  {
+    "houseName": "Divine pg",
+    "price": "4500",
+    "location": "Noida",
+    "rating": "4.5",
+    "photoURl": "https://assets.cntraveller.in/photos/6886f33321edcddedd073bdd/3:2/w_3000,h_2000,c_limit/Airbnb-Rooms-Bangkok-Bedroom-2023-Summer-Release.jpg",
+    "id": "0.08316024746378492"
+  }
+]
