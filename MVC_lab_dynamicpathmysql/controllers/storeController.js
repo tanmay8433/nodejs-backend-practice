@@ -60,7 +60,8 @@ exports.getBookings = (req, res, next) => {
 }
 exports.getHomesDetails = (req, res, next) => {
        const homeId = req.params.homeId;
-       Home.findbyId(homeId, home => {
+       Home.findbyId(homeId).then(([homes]) => {
+              const home=homes[0]
               if (!home) {
                      console.log("Home not found")
                      res.redirect("/homes")

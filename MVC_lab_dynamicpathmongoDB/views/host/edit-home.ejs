@@ -1,0 +1,21 @@
+ <%- include('../partials/head')%>
+</head>
+<body><header>
+ <%- include('../partials/header')%>
+  <p><%=editing ? "Edit":"Register"%> your home here:</p>
+</header>
+<main>
+
+  <form action="/host/<%=editing ? "edit-home" : "add-home" %>" method="POST">
+      <input type="hidden" name="id" value="<%= editing ? home._id:"" %>" placeholder="id"/>
+  <input type="text" name="houseName" value="<%= editing ? home.houseName:"" %>" placeholder="name of your house"/>
+    <input type="text" name="price" value="<%= editing ? home.price:"" %>" placeholder="price of your house"/> 
+     <input type="text" name="location" value="<%= editing ? home.location:"" %>" placeholder="location of your house"/> 
+      <input type="text" name="rating" value="<%= editing ? home.rating:"" %>" placeholder="rating of your house"/>
+           <input type="text" name="photoURl" value="<%= editing ? home.imagrUrl:"" %>" placeholder="enter photo URl"/>
+             <textarea  name="description"  placeholder="enter description"><%= editing ? home.description:"" %></textarea>
+  <input type="submit" value="<%=editing ? "Update home":"Add home" %>"/>
+  </form>
+</main>
+</body>
+</html> 

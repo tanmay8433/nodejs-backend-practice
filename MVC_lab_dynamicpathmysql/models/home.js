@@ -11,17 +11,33 @@ module.exports = class Home {
     this.id=id;
   }
   Save() {
-return db.execute("INSERT INTO homes(name,price,location,rating,imagrUrl,description)VALUES(?,?,?,?,?,?)",[this.houseName,this.price,this.location,this.rating,this.photoURl,this.description]);
+    if(this.id){
+return db.execute(
+  "UPDATE homes SET name=?, price=?, location=?, rating=?, imagrUrl=?, description=? WHERE id=?",
+  [
+    this.houseName,
+    this.price,
+    this.location,
+    this.rating,
+    this.photoURl,
+    this.description,
+    this.id
+  ]
+);
+    }else{
+
+      return db.execute("INSERT INTO homes(name,price,location,rating,imagrUrl,description)VALUES(?,?,?,?,?,?)",[this.houseName,this.price,this.location,this.rating,this.photoURl,this.description]);
+    }
   }
   static fetchAll() {
 return db.execute("SELECT * from homes")
   }
 
-  static findbyId(homeId, callback) {
-   
+  static findbyId(homeId) {
+   return db.execute("SELECT * from homes WHERE id=?",[homeId])
   }
-  static deletebyId(homeId, callback) {
-   
+  static deletebyId(homeId) {
+   return db.execute("DELETE from homes WHERE id=?",[homeId]) 
   }
 }
 // exports.registerHomes=registerHomes;
