@@ -14,7 +14,7 @@ exports.postAddHome=(req,res,next)=>{
 }
 
 exports.getHostHomes=(req,res,next)=>{
-       const registerHomes=Home.fetchAll((registerHomes)=> res.render('host/host-home-list',{registerHomes:registerHomes,pageTitle:"Airbnb host home list",currentPage:"Host-Home-list"}));
+       const registerHomes=Home.fetchAll((registerHomes)=> res.render('host/host-home-list',{registerHomes:registerHomes,pageTitle:" host home list",currentPage:"Host-Home-list"}));
 }
 exports.postEditHome=(req,res,next)=>{
        // console.log(req.body ,"postAddHome")

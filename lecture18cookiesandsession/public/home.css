@@ -1,0 +1,26 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  text-align: center;
+  padding-top: 100px;
+}
+
+header h1 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+main a {
+  text-decoration: none;
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+main a:hover {
+  background-color: #2563eb;
+}
