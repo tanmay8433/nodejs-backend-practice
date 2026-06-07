@@ -1,70 +1,80 @@
 <header class="bg-blue-600 text-white shadow-md">
-    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+<a href="/" class="text-2xl font-bold hover:text-gray-200 transition">
+  Airbnb  
+</a>
+    <div class="flex items-center gap-4 flex-wrap">
 
-        <h1 class="text-2xl font-bold">
-            Welcome
-        </h1>
+      <a href="/"
+        class="<%= currentPage === 'index' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Airbnb
+      </a>
 
-        <div class="flex items-center gap-4">
+      <% if(isLoggedIn) { %>
+<% if(user && user.userType === 'guest') { %>
+      <a href="/homes"
+        class="<%= currentPage === 'Home' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Homes-list
+      </a>
 
-            <a href="/" class="<%= currentPage==='index' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                Airbnb
-            </a>    
-            <% if(isLoggedIn) { %>
-                <a href="/homes" class="<%= currentPage==='Home' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                Homes-list
-            </a>
+      <a href="/bookings"
+        class="<%= currentPage === 'bookings' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Bookings
+      </a>
 
-            <a href="/bookings" 
-              class="<%= currentPage==='bookings' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                bookings
-            </a>
-            
-            <a href="/favourites" 
-              class="<%= currentPage==='favourite-list' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                favourite-list
-            </a> 
-         
-              
-            
-            <a href="/home-details" 
-              class="<%= currentPage==='home-details' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-               home-details
-            </a>
-                 <a href="/home-list" 
-              class="<%= currentPage==='home-list' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-               home-list
-            </a>
-            <a href="/reserve" 
-              class="<%= currentPage==='reserve' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-               reserve  
-            </a>
-              <a href="/host/host-home-list" 
-              class="<%= currentPage==='host-home-list' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                host Home list
-            </a>
-        </div>
-            <a href="/host/add-home" 
-              class="<%= currentPage==='addHome' ?'text-red-700':'hover:text-gray-200'%> transition duration-300">
-                Add Home
-            </a>
-               <%  } %>
-                 <% if(!isLoggedIn) { %>
-                   <a href="/login" 
-              class="text-white-700 hover:text-gray-200 transition duration-300">
-                Login
-            </a>
-             <%  } else { %> 
-                <form action="/logout" method="POST" class="inline">
-  <button
-    type="submit"
-    class="text-white-700 cursor-pointer hover:text-gray-200 transition duration-300"
-  >
-    Logout
-  </button>
-</form>
-             <%  } %>
-        </div>
+      <a href="/favourites"
+        class="<%= currentPage === 'favourite-list' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Favourite-list
+      </a>
+<% }else{ %>
+      <a href="/home-details"
+        class="<%= currentPage === 'home-details' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Home-details
+      </a>
 
-    </nav>
+      <a href="/home-list"
+        class="<%= currentPage === 'home-list' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Home-list
+      </a>
+
+      <a href="/reserve"
+        class="<%= currentPage === 'reserve' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Reserve
+      </a>
+
+      <a href="/host/host-home-list"
+        class="<%= currentPage === 'host-home-list' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Host Home List
+      </a>
+
+      <a href="/host/add-home"
+        class="<%= currentPage === 'addHome' ? 'text-red-300 font-semibold' : 'hover:text-gray-200' %> transition">
+        Add Home
+      </a>
+<% } %>
+      <form action="/logout" method="POST" class="inline">
+        <button
+          type="submit"
+          class="cursor-pointer hover:text-gray-200 transition">
+          Logout
+        </button>
+      </form>
+
+      <% } else { %>
+
+      <a href="/signup"
+        class="hover:text-gray-200 transition">
+        Sign Up
+      </a>
+
+      <a href="/login"
+        class="hover:text-gray-200 transition">
+        Login
+      </a>
+
+      <% } %>
+
+    </div>
+
+  </nav>
 </header>

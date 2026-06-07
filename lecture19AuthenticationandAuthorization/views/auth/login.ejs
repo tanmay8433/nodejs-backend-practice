@@ -12,10 +12,12 @@
     method="POST"
     class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md"
   >
+  <%- include('../partials/errors') %>
     <input
-      type="text"
-      name="userName"
-      placeholder="Email or UserName"
+      type="email"
+      name="email"
+      placeholder="Enter your Email"
+       value="<%= typeof oldInput !=='undefined' ? oldInput.email:'' %>"
       required
       class="w-full px-4 py-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       required

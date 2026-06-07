@@ -7,14 +7,16 @@ const Home = require("../models/home")
 exports.getIndex = (req, res, next) => {
        console.log("is session",req.session)
        Home.find().then(registerHomes=>{
- res.render('store/index', { registerHomes: registerHomes, pageTitle: "Airbnb home", currentPage: "index",isLoggedIn:req.isLoggedIn })
+ res.render('store/index', { registerHomes: registerHomes, pageTitle: "Airbnb home", currentPage: "index",isLoggedIn:req.isLoggedIn , 
+    user:req.session.user})
        });
 }
 
 exports.getHomes = (req, res, next) => {
 
       Home.find().then(registerHomes=>{
-               res.render('store/home-list', { registerHomes: registerHomes, pageTitle: "Airbnb list", currentPage: "Home" ,isLoggedIn:req.isLoggedIn})});
+               res.render('store/home-list', { registerHomes: registerHomes, pageTitle: "Airbnb list", currentPage: "Home" ,isLoggedIn:req.isLoggedIn, 
+    user:req.session.user})});
 }
 
 exports.getfavouritelist = (req, res, next) => {
@@ -22,7 +24,8 @@ exports.getfavouritelist = (req, res, next) => {
 const favouritesHomes=favourites.map(fav=>
        fav.houseId
 );
-                     res.render('store/favourite-list', { favouritewithDetails: favouritewithDetails, pageTitle: "Airbnb favourite-list", currentPage: "favourite-list",isLoggedIn:req.isLoggedIn })       
+                     res.render('store/favourite-list', { favouritewithDetails: favouritewithDetails, pageTitle: "Airbnb favourite-list", currentPage: "favourite-list",isLoggedIn:req.isLoggedIn, 
+    user:req.session.user })       
        });
 
 }
@@ -50,7 +53,8 @@ exports.postAddtoFavourite = (req, res, next) => {
     });
 };
 exports.getBookings = (req, res, next) => {
-       res.render('store/bookings', { pageTitle: "My Bookings", currentPage: "bookings",isLoggedIn:req.isLoggedIn });
+       res.render('store/bookings', { pageTitle: "My Bookings", currentPage: "bookings",isLoggedIn:req.isLoggedIn , 
+    user:req.session.user});
 
 }
 exports.getHomesDetails = (req, res, next) => {
@@ -63,7 +67,8 @@ exports.getHomesDetails = (req, res, next) => {
               }
               else {
 
-                     res.render('store/home-details', { pageTitle: "Home details", currentPage: "home-details", home: home,isLoggedIn:req.isLoggedIn });
+                     res.render('store/home-details', { pageTitle: "Home details", currentPage: "home-details", home: home,isLoggedIn:req.isLoggedIn, 
+    user:req.session.user });
               }
        })
 }

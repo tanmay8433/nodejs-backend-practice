@@ -1,0 +1,13 @@
+     <!-- Corrected & Repositioned Errors Section -->
+      <% if (errors.length > 0) { %>
+        <div class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded-xl relative shadow-sm" role="alert">
+          <strong class="font-bold block mb-1 text-red-800 text-sm">
+            Please fix the following errors:
+          </strong>
+          <ul class="list-disc pl-5 text-xs space-y-1 font-medium">
+            <% errors.forEach(error => { %>
+              <li><%= error %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>

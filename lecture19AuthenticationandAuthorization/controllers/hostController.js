@@ -2,7 +2,8 @@
 const Home = require("../models/home")
 
 exports.getAddHome=(req,res,next)=>{
-       res.render("host/edit-home",{pageTitle:"addHome",currentPage:"addHome",editing:false,isLoggedIn:req.isLoggedIn})
+       res.render("host/edit-home",{pageTitle:"addHome",currentPage:"addHome",editing:false,isLoggedIn:req.isLoggedIn, 
+    user:req.session.user})
 }
 exports.getEditHome=(req,res,next)=>{
        const homeId=req.params.homeId;
@@ -15,7 +16,8 @@ exports.getEditHome=(req,res,next)=>{
               }
               console.log(homeId,editing,home,'check  ')
               
-                     res.render("host/edit-home",{pageTitle:"edit your home",currentPage:"host-homes",editing:editing,home:home,isLoggedIn:req.isLoggedIn})
+                     res.render("host/edit-home",{pageTitle:"edit your home",currentPage:"host-homes",editing:editing,home:home,isLoggedIn:req.isLoggedIn, 
+    user:req.session.user})
 
               
        })
@@ -33,7 +35,8 @@ exports.postAddHome=(req,res,next)=>{
 exports.getHostHomes=(req,res,next)=>{
         Home.find().then(registerHomes=>{
               
-              res.render('host/host-home-list',{registerHomes:registerHomes,pageTitle:"Airbnb host home list",currentPage:"Host-Home-list",isLoggedIn:req.isLoggedIn})});
+              res.render('host/host-home-list',{registerHomes:registerHomes,pageTitle:"Airbnb host home list",currentPage:"Host-Home-list",isLoggedIn:req.isLoggedIn, 
+    user:req.session.user})});
 }
 exports.postEditHome=(req,res,next)=>{
        // console.log(req.body ,"postAddHome")
