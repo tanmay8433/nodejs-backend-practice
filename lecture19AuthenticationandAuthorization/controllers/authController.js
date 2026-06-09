@@ -28,8 +28,8 @@ const {email,password}=req.body;
                   oldInput:{email}
                   , 
     user:{}
-            });
- }          
+});
+}          
 const match= await bcrypt.compare(password,user.password)
 if(!match){
 
